@@ -114,7 +114,7 @@ item2=Book(     user=user1,
                              Mongolia; and frees Asterix and Getafix for giving him the information, while reminding them 
                              that they are still enemies. The two Gauls then return to their village, where their neighbors 
                              celebrate their recovery.""",
-                author="René Goscinny",
+                author="Rene Goscinny",
                 publisher="Dargaud",
                 url="https://upload.wikimedia.org/wikipedia/en/2/29/Asterixcover-asterix_the_gaul.jpg", 
                 genre=genre2)
