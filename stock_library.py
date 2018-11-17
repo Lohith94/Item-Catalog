@@ -58,7 +58,7 @@ item2=Book(     user=user1,
                 author="William Shakespeare",
                 publisher="Folio",
                 url="""https://books.google.co.in/books/content?id=HysVAjLGOC0C&printsec=frontcover&img=1""",
-                genre=genre1)
+                genre=genre2)
 session.add(item2)
 session.commit()
 
