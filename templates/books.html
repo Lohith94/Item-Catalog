@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block title %}View Books{% endblock %}
+
+{% block content %}
+    <div class="container sections">
+        <h4>{{ genre.name }} has ({{ total }}{% if total == 1 %} {% else %} books{% endif %})</h4>
+        {% if session['user_id'] == genre.user_id %}
+            <div class="row">
+              <div class="col-md-12">
+                <a href="{{ url_for('edit_genre', genre_id=genre.id) }}"><button class="btn btn-primary"><i class="fas fa-edit text-and-icon"></i>Edit</button></a>
+                <a href="{{ url_for('add_book_by_genre', genre_id=genre.id) }}"><button class="btn btn-success"><i class="fas fa-plus text-and-icon"></i>Add book </button></a>
+                <a href="{{ url_for('delete_genre', genre_id=genre.id) }}"><button class="btn btn-danger"><i class="far fa-trash-alt text-and-icon"></i>Delete</button></a>
+              </div>
+            </div>
+        {% endif %}
+        
+        <div class="col-md-8" style="margin-top: 10px">
+          {% if total == 0 %}
+          <p>No books are present in this genre.</p>
+          {% else %}
+          <div class="container-section">
+            <div class="row">
+              <div class="card-columns">
+              {% for books in books %}
+                
+                   <div class="card md-12" style="background-color: peachpuff; border-width: 3px">
+                     <img class="card-img-top mx-auto d-block" src={{books.url}} >
+                      <div class="card-headder text-center font-weight-bold"><a href="{{ url_for('view_book', book_id=books.id) }}"> {{ books.name }}</a></div>
+                        <div class="card-body">
+                         <small class="row"><a class="font-weight-bold">Author:</a> {{ books.author}}</small>
+                         <small class="row"><a class="font-weight-bold">Publisher:</a> {{ books.publisher}}</small>
+                        </div>
+                    </div>
+
+              {% endfor %}
+              </div>
+            </div>
+          </div>
+          {% endif %}
+        </div>
+    </div>
+{% endblock %}

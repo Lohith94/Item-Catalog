@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="jumbotron jumbotron-fluid" style="padding-left: 40px">
+    <div class="container-section">
+      <div class="col-md-12">
+          <h1>Welcome to My Library!</h1>
+          <p>Here you can view all the books filtered by a particular genre. Click on a specific genre to view, add, or delete books.
+          </p>
+      </div>
+    </div>
+    {% if 'username' in session %}
+    <div class="row">
+      <div class="col-md-12">
+        <a href="{{ url_for('add_genre') }}"><button class="btn btn-primary"><i class="fas fa-plus text-and-icon"></i>Add Genre</button></a>
+        <a href="{{ url_for('add_book') }}"><button class="btn btn-success" style="margin-left: 10px;"><i class="fas fa-plus text-and-icon"></i>Add Book</button></a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+
+  <div class="container sections" style="margin-top: 2%">  
+    <div class="row">
+      <div class="col-md-3" style="background-color:peachpuff; padding-top: 8px;">
+        <h2>Genre</h2><hr>
+            {% for genre in genre %}
+                <a href="{{ url_for('show_books_in_genre', genre_id=genre.id) }}"><p>{{ genre.name }}</p></a>
+            {% endfor %}
+      </div>   
+              
+            <div class="col-md-9" style="background-color:peachpuff; padding-top: 15px;">
+              <h2>Books</h2>
+                  <div class="container-section">
+                    <div class="row">
+                      <div class="card-columns">
+                      {% for books in books %}
+                        
+                           <div class="card md-12" style="background-color: peachpuff; border-width: 3px">
+                             <img class="card-img-top mx-auto d-block" src={{books.url}} >
+                              <div class="card-headder text-center font-weight-bold"><a href="{{ url_for('view_book', book_id=books.id) }}"> {{ books.name }}</a></div>
+                                <div class="card-body">
+                                 <small class="row"><a class="font-weight-bold">Author:</a> {{ books.author}}</small>
+                                 <small class="row"><a class="font-weight-bold">Publisher:</a> {{ books.publisher}}</small>
+                                </div>
+                            </div>
+
+                      {% endfor %}
+                      </div>
+                    </div>
+                  </div>
+            </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

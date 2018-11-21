@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block title %}All Books{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="col-md-12">
+            <div class="row" style="margin-top: 35px;">
+                <h1>{{ book.name }}</h1>
+            </div>
+            <div class="row">
+                    <h6><i class="fas fa-user"></i> {{ owner.name }}<i class="fas fa-tags" style="margin-left:15px"></i>{{ genre.name }}</i></h6>
+                </div>
+
+
+                <div class="card md-12" style="background-color: peachpuff; border-width: 3px">
+                    <img class="card-img-top mx-auto d-block" src={{book.url}} >
+                     <div class="card-headder text-center font-weight-bold"><a href="{{ url_for('view_book', book_id=book.id) }}"> {{ book.name }}</a></div>
+                       <div class="card-body">
+                        <small class="row"><a class="font-weight-bold">Author:</a> {{ book.author}}</small>
+                        <small class="row"><a class="font-weight-bold">Publisher:</a> {{ book.publisher}}</small>
+                       </div>
+                   </div>
+
+
+
+
+
+
+            <div class="row" style="margin-top: 2%">
+                    <p>{{ book.description }}</p>
+            </div>
+            {% if 'username' in session %}
+            {% if session['user_id'] == owner.id %}
+            <div class="row" style="margin-top: 10px;">
+                <form>
+                    <a href="{{ url_for('edit_book', book_id=book.id) }}"><button type="button" class="btn btn-primary"><i class="far fa-edit text-and-icon"></i>Edit</button></a>
+                    <a href="{{ url_for('delete_book', book_id=book.id) }}"><button type="button" class="btn btn-danger"><i class="far fa-trash-alt text-and-icon"></i>Delete</button></a>
+                </form>
+            </div>
+            {% endif %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

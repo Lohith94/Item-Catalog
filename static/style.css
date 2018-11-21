@@ -1,0 +1,45 @@
+.navbar {
+    -webkit-box-shadow: 0 0 150px 0 #999;
+    -moz-box-shadow: 0 0 150px 0 #999;
+    box-shadow: 0 0 150px 0 #999;
+}
+
+body {
+    background: aliceblue;
+}
+
+.text-and-icon {
+    margin-right: 8px;
+}
+
+.sections {
+    margin-top: 6%;
+}
+
+.login-box {
+    margin-top: 200px;
+    height: 250px;
+    box-shadow: None;
+    transition: box-shadow 400ms;
+}
+
+
+
+.container .google-box {
+    display: inline-block;
+    text-align: center;
+}
+
+.jumbotron{
+    margin:15px 30px 0px 30px;
+      background: 
+  linear-gradient(
+    rgba(192, 210, 231, 0.26), 
+    rgba(14, 243, 243, 0.253)
+  ),
+  url(https://source.unsplash.com/1600x1050/?nature);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color:white !important;
+  height:340px;
+  }
