@@ -28,7 +28,6 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
-
 # Create new user.
 def create_user(login_session):
     """Crate a new user.
@@ -65,11 +64,8 @@ def get_user_id(email):
         email (str) : the email of the user.
     """
 
-    try:
-        user = session.query(User).filter_by(email=email).one()
-        return user.id
-    except:
-        return None
+    user = session.query(User).filter_by(email=email).one()
+    return user.id
 
 
 # Home page.
@@ -236,7 +232,6 @@ def logout():
         return redirect(url_for('home'))
 
 
-
 # Add a new category.
 @app.route("/catalog/genre/new/", methods=['GET', 'POST'])
 def add_genre():
@@ -292,14 +287,11 @@ def add_book():
             name=request.form['name'],
             genre_id=request.form['genre'],
             description=request.form['description'],
-            user_id=login_session['user_id'],
-            #author=request.form['author'],
-            #publisher=request.form['publisher'],
-            #url=request.form['url']
+            user_id=login_session['user_id']
         )
         session.add(new_book)
         session.commit()
-        flash('New book successfully created!') 
+        flash('New book successfully created!')
         return redirect(url_for('home'))
     else:
         books = session.query(Book).\
@@ -313,7 +305,7 @@ def add_book():
         )
 
 
-# Create new item by Category ID. 
+# Create new item by Category ID.
 @app.route("/catalog/genre/<int:genre_id>/book/new/",
            methods=['GET', 'POST'])
 def add_book_by_genre(genre_id):
@@ -566,7 +558,8 @@ def catalog_book_json(genre_id, book_id):
     """Return JSON of a particular item in the catalog."""
 
     if exists_genre(genre_id) and exists_book(book_id):
-        book = session.query(Book).filter_by(id=book_id, genre_id=genre_id).first()
+        book = session.query(Book)\
+                .filter_by(id=book_id, genre_id=genre_id).first()
         if book is not None:
             return jsonify(item=book.serialize)
         else:
