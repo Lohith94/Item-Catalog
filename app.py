@@ -297,8 +297,7 @@ def add_book():
     else:
         books = session.query(Book).\
                 filter_by(user_id=login_session['user_id']).all()
-        genre = session.query(Genre).\
-            filter_by(user_id=login_session['user_id']).all()
+        genre = session.query(Genre)
         return render_template(
             'new-book.html',
             books=books,
