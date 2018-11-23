@@ -63,15 +63,16 @@ def get_user_id(email):
     Argument:
         email (str) : the email of the user.
     """
-
-    user = session.query(User).filter_by(email=email).one()
-    return user.id
+    try:
+        user = session.query(User).filter_by(email=email).one()
+        return user.id
+    except:
+        return None
 
 
 # Home page.
 @app.route('/')
 @app.route('/genre/')
-@app.route('/genre/books/')
 def home():
     """Go to homepage."""
     genre = session.query(Genre).all()
