@@ -545,7 +545,7 @@ def delete_genre(genre_id):
 # JSON Endpoints
 
 # Return JSON of all the items in the catalog.
-@app.route('/api/v1/genre/JSON')
+@app.route('/api/v1/books/JSON')
 def show_catalog_json():
     """Return JSON of all the items in the catalog."""
 
