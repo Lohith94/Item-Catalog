@@ -570,6 +570,25 @@ def catalog_book_json(genre_id, book_id):
         return jsonify(error='The book or the genre does not exist.')
 
 
+# Return JSON of a all items in the catalog.
+@app.route(
+    '/api/v1/genre/<int:genre_id>/books/JSON')
+def catalog_books_list_json(genre_id):
+    """Return JSON of a particular item in the catalog."""
+
+    if exists_genre(genre_id):
+        book = session.query(Book)\
+                .filter_by(genre_id=genre_id).all()
+        if book is not None:
+            return jsonify(item=book.serialize)
+        else:
+            return jsonify(
+                error='genre {} does not contain any books.'
+                .format(genre_id))
+    else:
+        return jsonify(error='The genre does not exist.')
+
+
 # Return JSON of all the categories in the catalog.
 @app.route('/api/v1/genre/JSON')
 def categories_json():
@@ -580,5 +599,5 @@ def categories_json():
 
 
 if __name__ == "__main__":
-    app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
+    app.secret_key = b'_5#y2L"F49[$89?\'
     app.run(host="0.0.0.0", port=5000, debug=True)
