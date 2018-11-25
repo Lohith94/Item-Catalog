@@ -67,7 +67,7 @@ def get_user_id(email):
         user = session.query(User).filter_by(email=email).one()
         return user.id
     except:
-        return None
+        raise
 
 
 # Home page.
@@ -577,10 +577,10 @@ def catalog_books_list_json(genre_id):
     """Return JSON of a particular item in the catalog."""
 
     if exists_genre(genre_id):
-        book = session.query(Book)\
+        books = session.query(Book)\
                 .filter_by(genre_id=genre_id).all()
-        if book is not None:
-            return jsonify(item=book.serialize)
+        if books is not None:
+            return jsonify(item=[i.serialize for i in books])
         else:
             return jsonify(
                 error='genre {} does not contain any books.'
@@ -599,5 +599,5 @@ def categories_json():
 
 
 if __name__ == "__main__":
-    app.secret_key = b'_5#y2L"F49[$89?\'
+    app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
     app.run(host="0.0.0.0", port=5000, debug=True)
