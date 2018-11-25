@@ -6,6 +6,7 @@ from oauth2client.client import FlowExchangeError
 from database_setup import Base, User, Genre, Book
 from sqlalchemy import create_engine, asc
 from sqlalchemy.orm import sessionmaker
+from sqlalchemy.exc import DBAPIError
 
 
 from pprint import pprint
@@ -67,7 +68,8 @@ def get_user_id(email):
         user = session.query(User).filter_by(email=email).one()
         return user.id
     except:
-        raise
+        DBAPIError('Error!', email, get_user_id, code=None)
+        return None
 
 
 # Home page.
