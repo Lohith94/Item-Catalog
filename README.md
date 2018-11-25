@@ -36,7 +36,7 @@ These files configure the virtual machine and install all the tools needed to ru
 ```python app.py```
 * Open [http://localhost:5000](http://localhost:5000) in your favourite Web browser.
 #### Access the JSON API endpoints by using the URLs below:
-* Access a list of all the books:[http://localhost:8000/api/v1/genre/JSON](http://localhost:8000/api/v1/genre/JSON)
-* Access a list of all the genre:[http://localhost:8000/api/v1/books/JSON](http://localhost:8000/api/v1/books/JSON)
-* Access a list of all the books in a particular genre: [http://localhost:8000/api/v1/genre/<int:genre_id>/books/JSON](http://localhost:8000/api/v1/genre/<int:genre_id>/books/JSON)
-* Access data for an individual book bu book_id and genra_id: [http://localhost:8000/api/v1/genre/<int:genre_id>/book/<int:book_id>/JSON](http://localhost:8000/api/v1/genre/<int:genre_id>/book/<int:book_id>/JSON)
+* Access a list of all the books:```http://localhost:8000/api/v1/genre/JSON```
+* Access a list of all the genre:```http://localhost:8000/api/v1/books/JSON```
+* Access a list of all the books in a particular genre: ```http://localhost:8000/api/v1/genre/<int:genre_id>/books/JSON```
+* Access data for an individual book bu book_id and genra_id: ```http://localhost:8000/api/v1/genre/<int:genre_id>/book/<int:book_id>/JSON```
