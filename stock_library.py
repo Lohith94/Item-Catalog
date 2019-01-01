@@ -45,8 +45,7 @@ item1 = Book(user=user1,
                              into a kinder, gentler man.""",
              author="Charles Dickens",
              publisher="Chapman & Hall",
-             url="""https://books.google.co.in/books/content?id=rNhdhI_
-                    iphYC&printsec=frontcover&img=1""",
+             url="""https://books.google.co.in/books/content?id=rNhdhI_iphYC&printsec=frontcover&img=1""",
              genre=genre1)
 session.add(item1)
 session.commit()
