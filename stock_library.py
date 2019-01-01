@@ -69,8 +69,7 @@ item2 = Book(user=user1,
                              madness and death.""",
              author="William Shakespeare",
              publisher="Folio",
-             url="""https://books.google.co.in/books/content?id=
-                    HysVAjLGOC0C&printsec=frontcover&img=1""",
+             url="""https://books.google.co.in/books/content?id=/HysVAjLGOC0C&printsec=frontcover&img=1""",
              genre=genre1)
 session.add(item2)
 session.commit()
@@ -105,8 +104,7 @@ item1 = Book(user=user1,
                              but Tintin is able to rescue him.""",
              author="Herge",
              publisher="Casterman",
-             url="""https://upload.wikimedia.org/wikipedia/en/7/7c/The_
-               Adventures_of_Tintin_-_17_-_Explorers_on_the_Moon.jpg""",
+             url="""https://upload.wikimedia.org/wikipedia/en/7/7c/The_Adventures_of_Tintin_-_17_-_Explorers_on_the_Moon.jpg""",
              genre=genre2)
 session.add(item1)
 session.commit()
@@ -165,8 +163,7 @@ item2 = Book(user=user1,
                              celebrate their recovery.""",
              author="Rene Goscinny",
              publisher="Dargaud",
-             url="""https://upload.wikimedia.org/wikipedia/en/2/29/Asterix
-                    cover-asterix_the_gaul.jpg""",
+             url="""https://upload.wikimedia.org/wikipedia/en/2/29/Asterixcover-asterix_the_gaul.jpg""",
              genre=genre2)
 session.add(item2)
 session.commit()
@@ -209,8 +206,7 @@ item1 = Book(user=user1,
                              resting in the house of Beorn.""",
              author="J.R.R.Tolkien",
              publisher="George Allen & Unwin",
-             url="""https://upload.wikimedia.org/wikipedia/en/a/a9/The
-                    _Hobbit_trilogy_dvd_cover.jpg""",
+             url="""https://upload.wikimedia.org/wikipedia/en/a/a9/The_Hobbit_trilogy_dvd_cover.jpg""",
              genre=genre3)
 session.add(item1)
 session.commit()
@@ -245,8 +241,7 @@ item2 = Book(user=user1,
                              and a book of fairy tales for Hermione.""",
              author="J.K.Rowling",
              publisher="Bloomsbury",
-             url="""https://upload.wikimedia.org/wikipedia/en/a/a9/Harry_
-                    Potter_and_the_Deathly_Hallows.jpg""",
+             url="""https://upload.wikimedia.org/wikipedia/en/a/a9/Harry_Potter_and_the_Deathly_Hallows.jpg""",
              genre=genre3)
 session.add(item2)
 session.commit()
@@ -278,8 +273,7 @@ item1 = Book(user=user1,
                                   rather than political.""",
              author="Mohandas Karamchand Gandhi",
              publisher="Young India",
-             url="""https://upload.wikimedia.org/wikipedia/en/7/7e/
-                     The_Story_of_My_Experiments_with_Truth.jpg """,
+             url="""https://upload.wikimedia.org/wikipedia/en/7/7e/The_Story_of_My_Experiments_with_Truth.jpg """,
              genre=genre4)
 
 
